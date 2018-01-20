@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass{article}
 \usepackage{amsmath}
 \usepackage{fullpage}
 
@@ -16,13 +16,9 @@ The integral from of the continuity equation for compressible flow is given by:
 \int \frac{d\rho}{dt}  + \nabla \cdot (\rho \vec{u} ) dV = 0
 \end{equation}
 
-where:
+where $\rho$ is the density of the fluid, $\vec{u}$ is the velocity vector and $t$ is time.
 
-$\rho$	is the density of the fluid,
-$\vec{u}$	is the velocity vector,
-$t$	is time
-
-Applying the assumption of steady state, $\frac{d\rho}{dt} = 0$, reduces the continuity equation to:
+Applying the assumption of steady state, $\frac{d\rho}{dt} = 0$, reduces the continuity equation to
 
 \begin{equation} \label{eq2}
 \int \nabla \cdot (\rho \vec{u} ) dV = 0
@@ -49,24 +45,19 @@ Equation \ref{residual-v} can be recast in a more useful form by using the vecto
 \nabla \cdot (\Psi \vec{A}) = \Psi \nabla \cdot \vec{A} + \vec{A} \cdot \nabla\Psi
 \end{equation}
 
-and letting
-
-$\Psi = v$  and
-$\vec{A} = \rho \vec{u}$
-
-resulting in
+and letting $\Psi = v$ and $\vec{A} = \rho \vec{u}$ results in
 
 \begin{equation} \label{vecIdentapply}
 \nabla \cdot (v \rho \vec{u}) = v \nabla \cdot (\rho \vec{u}) + \rho \vec{u} \cdot \nabla v
 \end{equation}
 
-rearranging equation \ref{vecIdentappy} gives
+rearranging equation \ref{vecIdentapply} gives
 
 \begin{equation} \label{vecIdentappre}
 v \nabla \cdot (\rho \vec{u}) = \nabla \cdot (v \rho \vec{u}) - \rho \vec{u} \cdot \nabla v
 \end{equation}
 
-Substituting equation \ref{vecIdentaapre} into equation \ref{residual-v} gives
+Substituting equation \ref{vecIdentappre} into equation \ref{residual-v} gives
 
 \begin{equation} \label{residual-sub1}
 rv = \int \nabla \cdot (v \rho \vec{u}) dV - \int \rho \vec{u} \cdot \nabla v dV = 0
