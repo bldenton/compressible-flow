@@ -2,6 +2,6 @@
 # compressible flow using finite elements
 
 # Jan 19,2018
-# derivation of variation form of compressible continuity equation
+# derivation of variational form of compressible continuity equation
 
 #
