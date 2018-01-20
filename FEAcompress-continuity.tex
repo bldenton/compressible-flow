@@ -8,13 +8,90 @@
 \author{Brandon Denton}
 \date{January 19, 2018}
 
-\Chapter{Compressible Continuity Equation - Varaitional Form Derivation}
+\section{Steady State Compressible Continuity Equation - Varaitional Form Derivation}
 
-The control volume continuity equation for compressible flow in vector form is given by:
+The integral from of the continuity equation for compressible flow is given by:
 
-\begin{equation}
+\begin{equation} \label(eq1)
+\int \frac{d\rho}{dt}  + \nabla \cdot (\rho \vec{u} ) dV = 0
+\end{equation}
+
+where:
+
+$\rho$	is the density of the fluid,
+$\vec{u}$	is the velocity vector,
+$t$	is time
+
+Applying the assumption of steady state, $\frac{d\rho}{dt} = 0$, reduces the continuity equation to:
+
+\begin{equation} \label{eq2}
 \int \nabla \cdot (\rho \vec{u} ) dV = 0
 \end{equation}
 
+The next step in formulating the variational form of the compresseible continuity equation is to 
+rewrite the equation in is residual form. Since the continuity equation is already equal to zero,
+it is already in is residual form:
+
+\begin{equation} \label{residual}
+r = \int \nabla \cdot (\rho \vec{u} ) dV = 0
+\end{equation}
+
+Now we must mulitply the residual by an admissible test function, $v$, which must be square integratable.
+This results in:
+
+\begin{equation} \label{residual-v}
+rv = \int v \nabla \cdot (\rho \vec{u} ) dV = 0
+\end{equation}
+
+Equation \ref{residual-v} can be recast in a more useful form by using the vector identity
+
+\begin{equation} \label{vecIdent}
+\nabla \cdot (\Psi \vec{A}) = \Psi \nabla \cdot \vec{A} + \vec{A} \cdot \nabla\Psi
+\end{equation}
+
+and letting
+
+$\Psi = v$  and
+$\vec{A} = \rho \vec{u}$
+
+resulting in
+
+\begin{equation} \label{vecIdentapply}
+\nabla \cdot (v \rho \vec{u}) = v \nabla \cdot (\rho \vec{u}) + \rho \vec{u} \cdot \nabla v
+\end{equation}
+
+rearranging equation \ref{vecIdentappy} gives
+
+\begin{equation} \label{vecIdentappre}
+v \nabla \cdot (\rho \vec{u}) = \nabla \cdot (v \rho \vec{u}) - \rho \vec{u} \cdot \nabla v
+\end{equation}
+
+Substituting equation \ref{vecIdentaapre} into equation \ref{residual-v} gives
+
+\begin{equation} \label{residual-sub1}
+rv = \int \nabla \cdot (v \rho \vec{u}) dV - \int \rho \vec{u} \cdot \nabla v dV = 0
+\end{equation}
+
+rearranging equation \ref{residual-sub1} gives
+
+\begin{equation} \label{residual-rearr}
+\int \rho \vec{u} \cdot \nabla v dV = \int \nabla \cdot (v \rho \vec{u}) dV
+\end{equation}
+
+Upon further inspection, the Divergence theorem can be applied to the term on the right hand
+side of equation \ref{residual-rearr} resulting in the final variational form of the continuity
+equation.
+
+\begin{equation}
+\int \rho \vec{u} \cdot \nabla v dV = \int v \rho \vec{u} \cdot \hat{n} dS
+\end{equation}
+
+I have stopped at this variational form of the continuity equation for compressible flow as it 
+affords us the ability to substitute different equation of state models for the density, $\rho$, 
+which I believe is in line with the overall philosophy of GRINS and Petsc. 
 
 \end{document}
+
+
+
+
